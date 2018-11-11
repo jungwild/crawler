@@ -1,5 +1,5 @@
 <?php
-namespace Jungwild\Crawler;
+namespace Jungwild;
 
 use Symfony\Component\DomCrawler\Crawler;
 use \Wa72\HtmlPageDom\HtmlPageCrawler;

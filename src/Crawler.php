@@ -1,9 +1,6 @@
 <?php
 namespace Jungwild;
 
-use Jungwild\Crawler\HttpClient;
-use Jungwild\Crawler\DomCrawler;
-use Jungwild\Crawler\ApiClient;
 use Dotenv\Dotenv;
 
 define('RESPONSE_TYPE_DOMCRAWLER', 1);
@@ -25,6 +22,34 @@ class Crawler {
         $this->api = new ApiClient(getenv('API_USER'), getenv('API_PASS'), getenv('API_URL'));
         $this->client = new HttpClient();
         $this->domcrawler = new DomCrawler();
+    }
+
+    public function info($text) {
+
+        echo $text . "\n";
+
+    }
+
+    public function error($text) {
+
+        echo 'FEHLER => ' . $text . "\n";
+
+    }
+
+    public function seperateStreetNumber($street_number) {
+
+        if ( preg_match('/([^\d]+)\s?(.+)/i', $street_number, $result) )
+        {
+            if(count($result) >= 3) {
+                return [
+                    'street' => $result[1],
+                    'number' => $result[2]
+                ];
+            }
+        }
+
+        return false;
+
     }
 
     public function get($url, $response_type = RESPONSE_TYPE_DOMCRAWLER) {

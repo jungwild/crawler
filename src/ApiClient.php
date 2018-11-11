@@ -6,7 +6,7 @@
  * Time: 13:26
  */
 
-namespace Jungwild\Crawler;
+namespace Jungwild;
 use GuzzleHttp\Client;
 
 class ApiClient extends Client {
