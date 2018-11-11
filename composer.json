@@ -17,5 +17,7 @@
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('_env_example', '.env');\""
         ]
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
